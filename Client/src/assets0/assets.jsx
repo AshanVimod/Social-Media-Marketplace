@@ -1,5 +1,3 @@
-//now original code????????
-import logo from "./logo.svg";
 import {
   Youtube,
   Instagram,
@@ -12,6 +10,8 @@ import {
   Gamepad2,
   MessageCircle,
 } from "lucide-react";
+
+import logo from "./logo.svg";
 import image_1 from "./image_1.jpg";
 import image_2 from "./image_2.jpg";
 import image_3 from "./image_3.jpg";
@@ -42,11 +42,15 @@ export function getProfileLink(platform, username) {
   const base = socialMediaLinks[key];
   if (!base) return null;
   const cleanUsername = username.startsWith("@") ? username.slice(1) : username;
-
-  // Corrected: Removed redundant switch cases
   switch (key) {
+    case "linkedin":
+      return `${base}/${cleanUsername}`;
     case "youtube":
       return `https://www.youtube.com/@${cleanUsername}`;
+    case "snapchat":
+      return `${base}/${cleanUsername}`;
+    case "discord":
+      return `${base}/${cleanUsername}`;
     default:
       return `${base}/${cleanUsername}`;
   }
@@ -88,35 +92,33 @@ export const platformIcons = {
   ),
 };
 
-// Corrected: Standardized dates to ISO format
 export const dummyUsers = [
   {
     id: "user_1",
     email: "creator1@example.com",
     name: "Alex Johnson",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
   {
     id: "user_2",
     email: "creator2@example.com",
     name: "Sophia Lee",
     image: "https://randomuser.me/api/portraits/women/45.jpg",
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
   {
     id: "user_3",
     email: "creator3@example.com",
     name: "David Kim",
     image: "https://randomuser.me/api/portraits/men/72.jpg",
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
 ];
 
-// Corrected: Standardized dates to ISO format
 export const dummyListings = [
   {
     id: "listing_1",
@@ -143,8 +145,8 @@ export const dummyListings = [
     isCredentialSubmitted: true,
     isCredentialVerified: true,
     isCredentialChanged: true,
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
   {
     id: "listing_2",
@@ -171,9 +173,10 @@ export const dummyListings = [
     isCredentialSubmitted: true,
     isCredentialVerified: false,
     isCredentialChanged: false,
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
+
   {
     id: "listing_4",
     ownerId: "user_1",
@@ -199,8 +202,8 @@ export const dummyListings = [
     isCredentialSubmitted: true,
     isCredentialVerified: true,
     isCredentialChanged: false,
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
   {
     id: "listing_3",
@@ -227,8 +230,8 @@ export const dummyListings = [
     isCredentialSubmitted: false,
     isCredentialVerified: false,
     isCredentialChanged: false,
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
   {
     id: "listing_5",
@@ -255,13 +258,12 @@ export const dummyListings = [
     isCredentialSubmitted: true,
     isCredentialVerified: true,
     isCredentialChanged: true,
-    createdAt: "2025-10-16T07:22:10.000Z",
-    updatedAt: "2025-10-16T07:22:10.000Z",
+    createdAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
+    updatedAt: "Thu Oct 16 2025 12:52:10 GMT+0530 (India Standard Time)",
   },
 ];
 
-// Corrected: Split messages into two arrays so chats don't share the same chat_id messages
-export const dummyMessages1 = [
+export const dummyMessages = [
   {
     id: "msg104",
     chatId: "chat_1",
@@ -285,23 +287,6 @@ export const dummyMessages1 = [
   },
 ];
 
-export const dummyMessages2 = [
-  {
-    id: "msg201",
-    chatId: "chat_2",
-    sender_id: "user_2",
-    message: "Hey, is your Instagram fitness page for sale?",
-    createdAt: "2025-10-29T09:30:00.000Z",
-  },
-  {
-    id: "msg202",
-    chatId: "chat_2",
-    sender_id: "user_3",
-    message: "Yes it is! I can send you the details.",
-    createdAt: "2025-10-29T09:35:00.000Z",
-  },
-];
-
 export const dummyChats = [
   {
     id: "chat_1",
@@ -309,11 +294,11 @@ export const dummyChats = [
     ownerUserId: "user_2",
     listingId: "listing_1",
     active: true,
-    lastMessage: "Can you share recent analytics screenshots?",
+    lastMessage: "Hi, is this YouTube channel still available?",
     isLastMessageRead: false,
     createdAt: "2025-10-28T12:34:56.000Z",
     updatedAt: "2025-10-29T09:10:00.000Z",
-    messages: dummyMessages1, // Points to chat_1 messages
+    messages: dummyMessages,
     ownerUser: dummyUsers[0],
     chatUser: dummyUsers[1],
     listing: dummyListings[0],
@@ -324,11 +309,11 @@ export const dummyChats = [
     ownerUserId: "user_3",
     listingId: "listing_2",
     active: true,
-    lastMessage: "Yes it is! I can send you the details.",
+    lastMessage: "Hey, is your Instagram fitness page for sale?",
     isLastMessageRead: true,
     createdAt: "2025-10-28T15:30:00.000Z",
     updatedAt: "2025-10-29T10:00:00.000Z",
-    messages: dummyMessages2, // Points to chat_2 messages
+    messages: dummyMessages,
     ownerUser: dummyUsers[1],
     chatUser: dummyUsers[2],
     listing: dummyListings[1],
